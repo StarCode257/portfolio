@@ -6,6 +6,18 @@
 	import { cn } from '$lib/utils';
 	import * as Drawer from '$lib/components/ui/drawer/index.js';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { onMount } from 'svelte';
+
+	let isScrolled = $state(false);
+
+	onMount(() => {
+		const handleScroll = () => {
+			isScrolled = window.scrollY > 20;
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
 
 	let open = $state(false);
 	let { children } = $props();
@@ -18,7 +30,12 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<header class="flex flex-wrap items-center justify-between p-4 md:px-16">
+<header
+	class={cn(
+		isScrolled ? 'h-20' : 'h-24',
+		'fixed top-0 left-0 z-50 flex w-full flex-wrap items-center justify-between bg-popover p-4 transition-all duration-300 md:px-16'
+	)}
+>
 	<div class="flex items-center gap-2">
 		<div class="md:hidden">
 			<Drawer.Root direction="left" bind:open>
@@ -58,7 +75,12 @@
 				</Drawer.Content>
 			</Drawer.Root>
 		</div>
-		<span class="marck-script-regular text-6xl">Diamant</span>
+		<span
+			class={cn(
+				'marck-script-regular transition-all duration-300',
+				isScrolled ? 'text-5xl' : 'text-6xl'
+			)}>Diamant</span
+		>
 	</div>
 	<nav class="hidden gap-8 md:flex">
 		<a
@@ -81,4 +103,6 @@
 
 {@render children()}
 
-<footer class="flex justify-center">@copy starcode257</footer>
+<footer class="flex justify-center py-4">
+	<p>&copy; 2026 starcode257. All rights reserved.</p>
+</footer>
