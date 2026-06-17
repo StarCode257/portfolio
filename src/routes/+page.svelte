@@ -1,25 +1,30 @@
 <script>
 	import * as Card from '$lib/components/ui/card';
+	import my_image from '$lib/assets/N600-transparent.png';
 </script>
 
 <main class="p-4">
-	<!-- salutation section -->
-	<section>
-		<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-			Hey there, I'm Diamant
-		</h1>
-		<span>
-			I'm an <b>application developer</b> skilled in designing and building modern, <br />
-			feature-rich applications with a focus on usability, performance and security. <br />
-			Passionate about solving problems with technology and <br />
-			continuously learning new tools and frameworks.
-		</span>
-		<br />
-		<br />
-		<br />
-		<br />
-
-		<span>starcode257@gmail.com</span>
+	<!-- hero section -->
+	<section class="m-auto flex max-w-6xl flex-wrap justify-between">
+		<div>
+			<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+				Hey there, I'm Diamant
+			</h1>
+			<p class="leading-7 not-first:mt-6">
+				I'm a <b>software developer</b> skilled in designing and building modern, <br />
+				feature-rich applications with a focus on usability, performance and security. <br />
+				Passionate about solving problems with technology and <br />
+				continuously learning new tools and frameworks.
+			</p>
+			<br />
+			<div class="flex items-center gap-2">
+				<span><i class="fa fa-envelope"></i></span>
+				<span>starcode257@gmail.com</span>
+			</div>
+		</div>
+		<div>
+			<img alt="portfolio_image" src={my_image} />
+		</div>
 	</section>
 
 	<!-- what do i help section  -->
