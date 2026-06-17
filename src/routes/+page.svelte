@@ -4,6 +4,9 @@
 	import web_app from '$lib/assets/web-app.png';
 	import mobile_app from '$lib/assets/mobile-app.png';
 	import desktop_app from '$lib/assets/desktop-app.png';
+
+	import CV from '$lib/assets/PRO_CV.pdf?url';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
 <main class="mt-24 p-4">
@@ -23,6 +26,11 @@
 			<div class="flex items-center gap-2">
 				<span><i class="fa fa-envelope"></i></span>
 				<span>starcode257@gmail.com</span>
+			</div>
+			<br />
+			<div class="flex items-center gap-2">
+				<span><i class="fa fa-file-alt"></i></span>
+				<a href={CV} download="Diamant_CV.pdf"><Button>Download My Resume</Button></a>
 			</div>
 		</div>
 		<div>
@@ -56,10 +64,7 @@
 					<img src={mobile_app} alt="" width="100" />
 					<div>
 						<h1>Mobile development</h1>
-						<span>
-							Own an android or ios app <br />
-							to manage your company
-						</span>
+						<span> Own an android or ios app to manage your company </span>
 					</div>
 				</div>
 			</Card.Root>
