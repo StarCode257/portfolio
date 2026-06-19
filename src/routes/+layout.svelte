@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import { page } from '$app/state';
+	import { navigating, page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import { cn } from '$lib/utils';
 	import * as Drawer from '$lib/components/ui/drawer/index.js';
@@ -16,6 +16,10 @@
 		};
 
 		window.addEventListener('scroll', handleScroll);
+
+		const preloader = document.getElementById('pre_loader');
+		if (preloader) preloader.style.display = 'none';
+
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 
@@ -106,3 +110,10 @@
 <footer class="flex justify-center py-4">
 	<p>&copy; 2026 starcode257. All rights reserved.</p>
 </footer>
+
+{#if navigating.to}
+	<div
+		id="pre_loader"
+		class="fixed inset-0 z-9999 flex h-screen w-screen items-center justify-center bg-white/30 backdrop-blur-[10px]"
+	></div>
+{/if}
